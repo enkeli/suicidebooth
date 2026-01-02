@@ -1,8 +1,12 @@
 const archiveOrHide = () => {
-    const menuButton = document.querySelector('[aria-label="More options for post"]');
+    let menuButton = document.querySelector('[aria-label="More options for post"]');
     if (!menuButton) {
-        console.debug('no menu, exiting...');
-        return;
+        menuButton = document.querySelector('[aria-label="Actions for this post"]');
+
+        if (!menuButton) {
+            console.debug('no menu, exiting...');
+            return;
+        }
     }
     menuButton?.scrollIntoView();
     menuButton?.click();
@@ -58,4 +62,4 @@ const archiveOrHide = () => {
     }, 3000);
 }
 
-archiveOrHide();
+archiveOrHide()
