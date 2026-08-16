@@ -12,3 +12,6 @@ Quick script i wrote to either hide or archive all the post under your timeline 
 - Go to your facebook profile timeline
 - Open the console and copy the index.js contents on it
 - Sit and relax (only supporting "slow and horrible" mode for now, if the script stops, just write archiveOrHide() in your console to resume)
+
+## Browser extension POC
+There is also a Chrome MV3 extension proof of concept in `extension/` — same archive/hide flow, controlled from a toolbar popup with Start/Stop and live counters. The console paste above remains the source of truth. See [extension/README.md](extension/README.md) for load-unpacked and usage instructions.

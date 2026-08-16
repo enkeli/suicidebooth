@@ -23,3 +23,10 @@ Single source file: `src/index.js`. No build, package manager, tests, or lint.
 - Keep the script self-contained and console-pasteable (no imports/bundler).
 - When FB UI drifts, fix selectors/timings in `src/index.js` and update README usage if the run/resume story changes.
 - Verify only in a real browser against live FB mobile layout; there is no automated test path.
+
+## Browser extension POC (`extension/`)
+- Chrome MV3 port of the console script: `content.js` (flow), `background.js` (install log only), `popup.html/css/js` (Start/Stop + status), icons committed as PNGs.
+- `src/index.js` stays unchanged and remains the source of truth — when fixing selectors/timings, port the fix into `extension/content.js` after.
+- Content script differences vs console script: no auto-start (popup sends `{type:'start'|'stop'|'getStatus'}` via `chrome.runtime`), all `setTimeout` ids tracked and cleared on stop, stats object (`archived`, `hidden`, `errors`, `running`, `lastError`).
+- Load via `chrome://extensions` → Developer mode → Load unpacked. Popup requires the active tab to be on facebook.com with the mobile layout; reload pre-existing tabs so the content script injects.
+- Same verification rule: real browser against live FB mobile layout only.
