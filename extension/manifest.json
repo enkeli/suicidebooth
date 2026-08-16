@@ -2,14 +2,15 @@
     "manifest_version": 3,
     "name": "suicidebooth",
     "description": "Erase your social media profiles",
-    "version": "0.1.0",
+    "version": "0.1.1",
     "action": {
         "default_popup": "popup.html",
         "default_icon": {
             "16": "icons/icon16.png",
             "48": "icons/icon48.png",
             "128": "icons/icon128.png"
-        }
+        },
+        "default_title": "suicidebooth"
     },
     "background": {
         "service_worker": "background.js"
@@ -18,13 +19,22 @@
         {
             "matches": [
                 "https://*.facebook.com/*",
-                "http://*.facebook.com/*"
+                "http://*.facebook.com/*",
+                "https://m.facebook.com/*",
+                "https://www.facebook.com/*",
+                "https://mbasic.facebook.com/*"
             ],
             "js": ["content.js"],
-            "run_at": "document_idle"
+            "run_at": "document_idle",
+            "all_frames": false
         }
     ],
-    "permissions": ["storage", "activeTab"],
+    "permissions": [
+        "storage",
+        "tabs",
+        "scripting",
+        "activeTab"
+    ],
     "host_permissions": [
         "https://*.facebook.com/*",
         "http://*.facebook.com/*"

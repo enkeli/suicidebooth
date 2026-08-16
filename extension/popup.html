@@ -15,6 +15,7 @@
     <div class="controls">
         <button id="startBtn" type="button">Start</button>
         <button id="stopBtn" type="button">Stop</button>
+        <button id="diagBtn" type="button" class="secondary">Diagnose</button>
     </div>
 
     <div class="status">
@@ -31,7 +32,12 @@
         <dd id="errors">0</dd>
     </dl>
 
+    <p id="lastEvent" class="last-event" hidden></p>
     <p id="lastError" class="last-error" hidden></p>
+
+    <pre id="diagOut" class="diag" hidden></pre>
+
+    <p class="hint">Open your Facebook <strong>profile timeline</strong>, reload the tab after installing, then Start. On phone browsers use the Facebook mobile site. If nothing moves, tap Diagnose and share the output.</p>
 
     <script src="popup.js"></script>
 </body>
