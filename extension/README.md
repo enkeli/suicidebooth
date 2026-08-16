@@ -4,6 +4,13 @@ Chrome MV3 port of the `src/index.js` console script. Archive or hide all posts 
 
 The console paste of `src/index.js` remains the source of truth — this extension is a proof of concept that wraps the same selectors and delays.
 
+## Download
+
+Prebuilt zip (same files as this folder): [`../dist/suicidebooth-extension-v0.1.0.zip`](../dist/suicidebooth-extension-v0.1.0.zip)
+
+1. Download and unzip — `manifest.json` is at the root of the archive.
+2. Follow **Load unpacked** below and select the unzipped folder.
+
 ## Load unpacked
 
 1. Open `chrome://extensions` in Chrome (or a Chromium browser like Brave/Edge).
