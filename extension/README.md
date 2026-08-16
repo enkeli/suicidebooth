@@ -1,40 +1,31 @@
 # suicidebooth browser extension (POC)
 
-Chrome MV3 port of the `src/index.js` console script. Archive or hide all posts on your Facebook profile timeline, controlled from a toolbar popup instead of the devtools console.
+Chrome MV3 port of `src/index.js`. Archive or hide posts on your Facebook profile timeline from a toolbar popup (Start / Stop / Diagnose).
 
-The console paste of `src/index.js` remains the source of truth — this extension is a proof of concept that wraps the same selectors and delays.
+Full end-user guide (desktop + Android/Quetta):
+
+→ **[../documentation/howto-extension.md](../documentation/howto-extension.md)**
 
 ## Download
 
-Prebuilt zip (same files as this folder): [`../dist/suicidebooth-extension-v0.1.1.zip`](../dist/suicidebooth-extension-v0.1.1.zip)
+[../dist/suicidebooth-extension-v0.1.1.zip](../dist/suicidebooth-extension-v0.1.1.zip)
 
-1. Download and unzip — `manifest.json` is at the root of the archive.
-2. Follow **Load unpacked** below and select the unzipped folder.
+Unzip so `manifest.json` is at the folder root, then load unpacked (desktop) or install via Quetta’s extension UI (Android).
 
-## Load unpacked
+## Developer quick load (desktop)
 
-1. Open `chrome://extensions` in Chrome (or a Chromium browser like Brave/Edge).
-2. Enable **Developer mode** (toggle in the top right).
-3. Click **Load unpacked** and select this `extension/` directory.
-4. The suicidebooth icon appears in the toolbar.
+1. `chrome://extensions` → Developer mode → **Load unpacked** → this `extension/` directory (or the unzipped zip).
+2. Facebook profile timeline + **mobile** layout (DevTools device mode on desktop).
+3. Reload the tab → open popup → **Start**.
 
-## Usage
+## Layout
 
-1. On a desktop browser, open developer tools and enable device mode — pick a phone size (e.g. iPhone SE). The Facebook **mobile web layout** is required; the desktop DOM will not match the selectors.
-2. Go to your Facebook profile timeline.
-3. Click the suicidebooth toolbar icon.
-4. Press **Start**. The popup shows status and counts (archived / hidden / errors).
-5. Press **Stop** to halt — all pending timeouts are cleared immediately.
+| File | Role |
+|------|------|
+| `manifest.json` | MV3 manifest |
+| `content.js` | Archive/hide runner (port of `src/index.js`) |
+| `background.js` | Popup ↔ tab message relay |
+| `popup.html` / `popup.js` / `popup.css` | UI |
+| `icons/` | Toolbar icons |
 
-Notes:
-
-- The popup only works when the active tab is on `facebook.com`; otherwise it shows an error.
-- If the tab was open before the extension was loaded, reload the tab so the content script is injected.
-- Same "slow and horrible" pacing as the console script: ~3s steps, 5s between archives. Facebook can break the selectors at any time — when that happens, fix `src/index.js` first, then re-port here.
-
-## Troubleshooting (mobile / Quetta)
-
-1. Open your **profile timeline** (not Home feed), then **reload** the tab after (re)loading the extension.
-2. Tap the extension → **Diagnose**. You want `menuFound: true`. If false, Facebook's labels differ — paste the JSON when filing an issue.
-3. Start should set status to `running` and `lastEvent` should change (`menu-click`, `archive`, `no-menu-pass-N`, …). Errors now increment when the runner gives up.
-4. Grant any permission prompts for Facebook when the extension asks.
+`src/index.js` remains the console-paste source of truth. When Facebook selectors break, fix there first, then port into `content.js`.
