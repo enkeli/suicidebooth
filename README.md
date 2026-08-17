@@ -23,3 +23,6 @@ Short notes: [extension/README.md](extension/README.md)
 - Go to your Facebook profile timeline
 - Open the console and paste the contents of `src/index.js`
 - Sit and relax (only supporting "slow and horrible" mode for now; if the script stops, run `archiveOrHide()` in the console to resume)
+
+## Research
+- [Nora Android shell feasibility (R-001)](documentation/research/R-001-nora-fork-feasibility.md)

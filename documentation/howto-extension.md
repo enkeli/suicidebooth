@@ -202,3 +202,5 @@ If the extension is unavailable, you can still paste `src/index.js` into the des
 | [extension/README.md](../extension/README.md) | Short extension-oriented notes |
 | [src/index.js](../src/index.js) | Original console script |
 | [documentation/plans/P-001.md](plans/P-001.md) | Product direction |
+| [documentation/research/R-001-nora-fork-feasibility.md](research/R-001-nora-fork-feasibility.md) | Research: Nora (F-Droid) as optional Android shell |
+
