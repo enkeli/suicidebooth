@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>suicidebooth</title>
+    <link rel="stylesheet" href="popup.css">
+</head>
+<body>
+    <h1>suicidebooth</h1>
+    <p class="tagline">Erase your social media profiles</p>
+
+    <div id="error" class="error" hidden></div>
+
+    <div class="controls">
+        <button id="startBtn" type="button">Start</button>
+        <button id="stopBtn" type="button">Stop</button>
+        <button id="diagBtn" type="button" class="secondary">Diagnose</button>
+    </div>
+
+    <div class="status">
+        <span class="label">Status:</span>
+        <span id="status">stopped</span>
+    </div>
+
+    <dl class="stats">
+        <dt>Archived</dt>
+        <dd id="archived">0</dd>
+        <dt>Hidden</dt>
+        <dd id="hidden">0</dd>
+        <dt>Errors</dt>
+        <dd id="errors">0</dd>
+    </dl>
+
+    <p id="lastEvent" class="last-event" hidden></p>
+    <p id="lastError" class="last-error" hidden></p>
+
+    <pre id="diagOut" class="diag" hidden></pre>
+
+    <p class="hint">Open your Facebook <strong>profile timeline</strong>, reload the tab after installing, then Start. On phone browsers use the Facebook mobile site. If nothing moves, tap Diagnose and share the output.</p>
+
+    <script src="popup.js"></script>
+</body>
+</html>
